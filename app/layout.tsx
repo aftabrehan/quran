@@ -1,12 +1,17 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import localfont from '@next/font/local'
 import { ThemeProvider } from "@/components/theme-provider"
 
 import { Toaster } from "@/components/ui/toaster"
 import Nav from '@/components/Nav'
 
 const inter = Inter({ subsets: ['latin'] })
+const uthmanic = localfont({
+  src: '../public/fonts/uthmanic.otf',
+  variable: "--font-uthmanic"
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -20,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} ${uthmanic.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

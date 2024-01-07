@@ -19,7 +19,7 @@ const ListSurah = ({ data }: Props) => {
                 </div>
             </div>
             <div className='flex flex-col text-end'>
-                <p>{data.name}</p>
+                <p className='font-uthmanic'>{data.name}</p>
                 <p className='text-sm text-gray-400'>{data.numberOfAyahs} Aayahs</p>
             </div>
         </Link>
