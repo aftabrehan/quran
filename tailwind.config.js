@@ -72,7 +72,7 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        uthmanic: ["var(--font-uthmanic)"],
+        uthmanic: ["var(--font-uthmanic)", ...defaultTheme.fontFamily.sans],
       }
     },
   },
