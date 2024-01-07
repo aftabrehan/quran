@@ -12,7 +12,7 @@ const ListSurah = ({ data }: Props) => {
     return (
         <Link href={''} className='border p-4 hover:border-[#22A5AD] flex justify-between items-center rounded-md'>
             <div className='flex gap-2 items-center justify-center'>
-                <span className='flex mr-2 bg-gray-300 dark:bg-gray-800/30 hover:bg-[#22A5AD] w-12 h-12 rounded-lg text-center items-center justify-center rotate-45'><p className='-rotate-45 text-black dark:text-white'>{data.number}</p></span>
+                <span className='flex mr-2 bg-gray-300 dark:bg-gray-800/30 w-12 h-12 rounded-lg text-center items-center justify-center rotate-45'><p className='-rotate-45 text-black dark:text-white'>{data.number}</p></span>
                 <div className='flex flex-col'>
                     <p className='font-semibold text-lg'>{data.englishName}</p>
                     <p className='text-sm text-gray-400'>{data.englishNameTranslation}</p>
