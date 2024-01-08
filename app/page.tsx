@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { useToast } from "@/components/ui/use-toast"
 import ListSurah from "@/components/listsurah"
-import { FaArrowUp91 } from "react-icons/fa6";
+import { FaArrowUp91, FaArrowTrendDown, FaArrowTrendUp } from "react-icons/fa6";
 import { Skeleton } from "@/components/ui/skeleton"
 
 import {
@@ -43,8 +43,12 @@ export default function Home() {
   const sortData = (data: any) => {
     if (sort === "acc") {
       setListSurah(data.sort((a: any, b: any) => a.number - b.number))
-    } else {
+    } else if(sort === "dec") {
       setListSurah(data.sort((a: any, b: any) => b.number - a.number))
+    } else if(sort === "accaaya") {
+      setListSurah(data.sort((a: any, b: any) => a.numberOfAyahs - b.numberOfAyahs))
+    } else if(sort === "decaaya") {
+      setListSurah(data.sort((a: any, b: any) => b.numberOfAyahs - a.numberOfAyahs))
     }
   }
 
@@ -64,6 +68,8 @@ export default function Home() {
               <DropdownMenuRadioGroup value={sort} onValueChange={setSort}>
                 <DropdownMenuRadioItem value="acc">Accending</DropdownMenuRadioItem>
                 <DropdownMenuRadioItem value="dec">Decending</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="accaaya"><FaArrowTrendUp className="mr-1" /> Aayah (Low to high)</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="decaaya"><FaArrowTrendDown className="mr-1" />Aayah (High to low)</DropdownMenuRadioItem>
               </DropdownMenuRadioGroup>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -76,12 +82,12 @@ export default function Home() {
             ))
           ) : (
             <>
-            <Skeleton className="w-full h-20 rounded-md" />
-            <Skeleton className="w-full h-20 rounded-md" />
-            <Skeleton className="w-full h-20 rounded-md" />
-            <Skeleton className="w-full h-20 rounded-md" />
-            <Skeleton className="w-full h-20 rounded-md" />
-            <Skeleton className="w-full h-20 rounded-md" />
+              <Skeleton className="w-full h-20 rounded-md" />
+              <Skeleton className="w-full h-20 rounded-md" />
+              <Skeleton className="w-full h-20 rounded-md" />
+              <Skeleton className="w-full h-20 rounded-md" />
+              <Skeleton className="w-full h-20 rounded-md" />
+              <Skeleton className="w-full h-20 rounded-md" />
             </>
           )}
         </div>
