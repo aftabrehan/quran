@@ -81,9 +81,9 @@ export default function Surah({
                         <TabsTrigger value="tr">Translated</TabsTrigger>
                     </TabsList>
                     <TabsContent value="ar">
-                        <div className="border p-3 text-center flex flex-col rounded-md">
+                        <div className="border p-3 text-center flex flex-col rounded-md break-all overflow-hidden">
                             <p className="text-4xl mb-4 mt-4 font-uthmanic">{surah?.name?.long}</p>
-                            <div className="quran gap-5 font-uthmanic flex flex-wrap">
+                            <div className="quran gap-5 break-words font-uthmanic flex flex-wrap">
                                 {
                                     arSurah.map((item: any, index: any) => (
                                         <Aayat key={index} data={item} />
