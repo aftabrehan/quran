@@ -9,7 +9,7 @@ interface Props {
 const Aayat = ({ data }: Props) => {
     console.log(data)
     return (
-        <div>
+        <div className='block'>
             <p className='font-uthmanic text-2xl text-center'>{data.arabic_text}</p>
         </div>
     )

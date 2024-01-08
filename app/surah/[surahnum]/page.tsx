@@ -22,6 +22,7 @@ import {
     TabsTrigger,
 } from "@/components/ui/tabs"
 import Aayat from "@/components/aayah";
+import { Separator } from "@radix-ui/react-dropdown-menu";
 
 export default function Surah({
     params,
@@ -30,8 +31,8 @@ export default function Surah({
 }) {
     const { toast } = useToast();
     const surahnum = params.surahnum;
-    const [arSurah, setArSurah] = useState([]);
-    const [surah, setSurah] = useState([]);
+    const [arSurah, setArSurah] = useState<any[]>([]);
+    const [surah, setSurah] = useState<any>([]);
 
     useEffect(() => {
         fetchArSurah()
@@ -81,10 +82,13 @@ export default function Surah({
                     </TabsList>
                     <TabsContent value="ar">
                         <div className="border p-3 text-center flex flex-col">
-                            <p className="text-4xl">{surah?.name?.long}</p>
+                            <p className="text-4xl mb-4">{surah?.name?.long}</p>
+                            <Separator />
                             {
                                 arSurah.map((item: any, index: any) => (
-                                    <Aayat key={index} data={item} />
+                                    <div key={index} className="">
+                                        <Aayat data={item} />
+                                    </div>
                                 ))
                             }
                         </div>

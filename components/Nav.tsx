@@ -12,7 +12,7 @@ const Nav = () => {
         {/* Menu and Logo */}
         <div className='flex gap-2 items-center'>
           <Menu className='w-9 h-9 p-1 hover:bg-slate-800/20 dark:hover:bg-slate-300/10 rounded-xl' />
-          <div className='text-2xl font-semibold'>Al Quran</div>
+          <Link href={'/'} className='text-2xl font-semibold'>Al Quran</Link>
         </div>
 
         {/* Icons End */}
