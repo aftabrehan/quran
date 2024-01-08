@@ -5,7 +5,12 @@ export async function GET(
   params: { params: { surahnum: string } }
 ) {
   const surahnum = params.params.surahnum;
-  const res = await fetch(`https://api.alquran.cloud/v1/surah/${surahnum}`);
+  const res = await fetch(`https://quranenc.com/api/v1/translation/sura/english_saheeh/${surahnum}`);
   const data = await res.json();
-  return NextResponse.json(data);
+
+  if (!data.result) {
+    return NextResponse.json({ error: `Surah Number ${surahnum} is not present` }, { status: 404 });
+  }
+  return NextResponse.json(data.result);
+  
 }
