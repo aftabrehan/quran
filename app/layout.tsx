@@ -9,8 +9,9 @@ import Nav from '@/components/Nav'
 
 const inter = Inter({ subsets: ['latin'] })
 const uthmanic = localfont({
-  src: '@/public/fonts/uthmanic.otf',
-  variable: "--font-uthmanic"
+  src: '../public/fonts/Uthman.otf',
+  display: 'swap',
+  variable: "--font-uthmanic",
 })
 
 export const metadata: Metadata = {
