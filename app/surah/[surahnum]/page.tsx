@@ -81,16 +81,15 @@ export default function Surah({
                         <TabsTrigger value="tr">Translated</TabsTrigger>
                     </TabsList>
                     <TabsContent value="ar">
-                        <div className="border p-3 text-center flex flex-col">
-                            <p className="text-4xl mb-4">{surah?.name?.long}</p>
-                            <Separator />
-                            {
-                                arSurah.map((item: any, index: any) => (
-                                    <div key={index} className="">
-                                        <Aayat data={item} />
-                                    </div>
-                                ))
-                            }
+                        <div className="border p-3 text-center flex flex-col rounded-md">
+                            <p className="text-4xl mb-4 mt-4 font-uthmanic">{surah?.name?.long}</p>
+                            <div className="inline-block">
+                                {
+                                    arSurah.map((item: any, index: any) => (
+                                        <p key={index} className="text-2xl w-max my-2 font-uthmanic">{item.arabic_text}</p>
+                                    ))
+                                }
+                            </div>
                         </div>
                     </TabsContent>
                     <TabsContent value="tr">
