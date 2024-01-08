@@ -1,13 +1,38 @@
-import React from "react";
+"use client"
 
-export default async function page({
+import React from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useToast } from "@/components/ui/use-toast"
+
+export default function Surah({
     params,
 }: {
     params: { surahnum: string };
 }) {
-    // const session = await getServerAuthSession();
-    const surahnum = await params.surahnum;
+    const surahnum = params.surahnum;
+    const [surah, setSurah] = useState([]);
 
+    useEffect(() => {
+        fetchSurah()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    const fetchSurah = async () => {
+        try {
+            axios
+                .get(`https://api.quran.gading.dev/surah/${surahnum}`)
+                .then((res) => {
+                    setSurah(res.data.data);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        } catch (err: any) {
+            console.log(err);
+        }
+    };
+    console.log(surah);
 
     return (
         <main className="flex w-full max-h-screen items-center justify-center">
