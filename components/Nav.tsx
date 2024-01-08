@@ -8,7 +8,7 @@ import { ModeToggle } from './ModeToggle';
 const Nav = () => {
   return (
     <div className='sticky top-0 backdrop-blur-lg w-full justify-center'>
-      <div className='flex justify-between border-b flex-row mx-4 md:mx-7 lg:mx-10 p-3'>
+      <div className='flex justify-between border-b flex-row mx-4 md:mx-7 lg:mx-10 py-3'>
         {/* Menu and Logo */}
         <div className='flex gap-2 items-center'>
           <Menu className='w-9 h-9 p-1 hover:bg-slate-800/20 dark:hover:bg-slate-300/10 rounded-xl' />
