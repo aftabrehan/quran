@@ -83,10 +83,10 @@ export default function Surah({
                     <TabsContent value="ar">
                         <div className="border p-3 text-center flex flex-col rounded-md">
                             <p className="text-4xl mb-4 mt-4 font-uthmanic">{surah?.name?.long}</p>
-                            <div className="inline-block">
+                            <div className="quran gap-5 font-uthmanic flex flex-wrap">
                                 {
                                     arSurah.map((item: any, index: any) => (
-                                        <p key={index} className="text-2xl w-max my-2 font-uthmanic">{item.arabic_text}</p>
+                                        <Aayat key={index} data={item} />
                                     ))
                                 }
                             </div>
