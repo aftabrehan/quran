@@ -81,7 +81,7 @@ export default function Surah({
                         <TabsTrigger value="tr">Translated</TabsTrigger>
                     </TabsList>
                     <TabsContent value="ar">
-                        <div className="border p-3 text-center flex flex-col rounded-md break-all overflow-hidden">
+                        <div className="border p-3 text-center flex flex-col rounded-md overflow-hidden">
                             <p className="text-4xl mb-4 mt-4 font-uthmanic">{surah?.name?.long}</p>
                             <div className="quran gap-5 break-words font-uthmanic flex flex-wrap">
                                 {
