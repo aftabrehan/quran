@@ -88,7 +88,7 @@ export default function Home() {
               name="Search"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search for Surah Number, Name..."
+              placeholder="Surah Number, Name..."
               className="w-full rounded-md border py-2.5 pe-10 px-2 shadow-sm sm:text-sm"
             />
 
