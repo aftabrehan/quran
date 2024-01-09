@@ -72,7 +72,7 @@ export default function Surah({
     };
 
     return (
-        <main className="flex w-full max-h-screen items-center justify-center">
+        <main className="flex w-full min-h-screen items-center justify-center">
             <div className="w-full md:w-2/4 lg:w-2/4 mx-4 md:mx-7 lg:mx-10 mt-5 mb-7 h-full items-center justify-center">
                 <p className="font-uthmanic h-auto text-center font-bold text-4xl">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
                 <Tabs defaultValue="ar" className="w-full mt-5 mb-5">
