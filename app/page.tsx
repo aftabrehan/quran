@@ -15,10 +15,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { Search, X } from "lucide-react";
 
 export default function Home() {
   const { toast } = useToast()
   const [listSurah, setListSurah] = useState([])
+  const [search, setSearch] = useState("")
   const [sort, setSort] = useState("acc")
 
   useEffect(() => {
@@ -44,13 +46,15 @@ export default function Home() {
   const sortData = (data: any) => {
     if (sort === "acc") {
       setListSurah(data.sort((a: any, b: any) => a.number - b.number))
-    } else if(sort === "dec") {
+    } else if (sort === "dec") {
       setListSurah(data.sort((a: any, b: any) => b.number - a.number))
-    } else if(sort === "accaaya") {
+    } else if (sort === "accaaya") {
       setListSurah(data.sort((a: any, b: any) => a.numberOfAyahs - b.numberOfAyahs))
-    } else if(sort === "decaaya") {
+    } else if (sort === "decaaya") {
       setListSurah(data.sort((a: any, b: any) => b.numberOfAyahs - a.numberOfAyahs))
     }
+
+    console.log(data)
   }
 
   return (
@@ -75,12 +79,56 @@ export default function Home() {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
+        <div>
+          <div className="relative sm:hidden mt-4">
+
+            <input
+              type="text"
+              id="Search"
+              name="Search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search for Surah Number, Name..."
+              className="w-full rounded-md border py-2.5 pe-10 px-2 shadow-sm sm:text-sm"
+            />
+
+            {
+              search.length > 0 ? (
+                <span className="absolute inset-y-0 end-0 grid w-10 place-content-center">
+                  <button type="button" onClick={() => {
+                    setSearch("")
+                  }}>
+                    <X />
+                  </button>
+                </span>
+              ) : (
+                <span className="absolute inset-y-0 end-0 grid w-10 place-content-center">
+                  <button type="button">
+                    <Search />
+                  </button>
+                </span>
+
+              )}
+          </div>
+        </div>
         {/* // if large screen 3 grid else 1 grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-5">
           {listSurah.length > 0 ? (
-            listSurah.map((item) => (
-              <ListSurah key={item} data={item} />
-            ))
+            listSurah
+              .filter((item: any) => {
+                if (search === "") {
+                  return item
+                } else if (item.number.toString().includes(search)) {
+                  return item
+                } else if (item.englishName.toLowerCase().includes(search.toLowerCase())) {
+                  return item
+                } else if (item.englishNameTranslation.toLowerCase().includes(search.toLowerCase())) {
+                  return item
+                }
+              })
+              .map((item) => (
+                <ListSurah key={item} data={item} />
+              ))
           ) : (
             <>
               <Skeleton className="w-full h-20 rounded-md" />
